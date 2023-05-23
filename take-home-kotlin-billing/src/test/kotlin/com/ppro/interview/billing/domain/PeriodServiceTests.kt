@@ -2,6 +2,7 @@ package com.ppro.interview.billing.domain
 
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
+import java.time.Year
 
 class PeriodServiceTests {
 
@@ -57,6 +58,15 @@ class PeriodServiceTests {
         val expected = "periodId = 2023-14"
 
         assertEquals(expected, PeriodService().periodIdOfDate(inputDate))
+    }
+
+    @Test
+    fun periodsOfYearWhenSample1() {
+        val inputYear = Year.of(2019)
+
+        val expected = PeriodFixtures.periodsOf2019
+
+        assertEquals(expected, PeriodService().periodsOfYear(inputYear))
     }
 
 }
