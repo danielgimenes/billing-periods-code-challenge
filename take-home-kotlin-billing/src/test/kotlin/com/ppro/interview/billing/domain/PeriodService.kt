@@ -69,4 +69,31 @@ class PeriodServiceTests {
         assertEquals(expectedPeriod, PeriodService().ofDate(inputDate))
     }
 
+    @Test
+    fun nextPeriodOfWhenSaturday() {
+        val inputDate = LocalDate.of(2023, 4,1)
+
+        val expectedPeriod = LocalDate.of(2023, 4, 8)
+
+        assertEquals(expectedPeriod, PeriodService().nextPeriodOf(inputDate))
+    }
+
+    @Test
+    fun nextPeriodOfWhenNotSaturday() {
+        val inputDate = LocalDate.of(2023, 1,1)
+
+        val expectedPeriod = LocalDate.of(2023, 1, 7)
+
+        assertEquals(expectedPeriod, PeriodService().nextPeriodOf(inputDate))
+    }
+
+    @Test
+    fun nextPeriodOfWhenEndOfYear() {
+        val inputDate = LocalDate.of(2023, 12,31)
+
+        val expectedPeriod = LocalDate.of(2024, 1, 1)
+
+        assertEquals(expectedPeriod, PeriodService().nextPeriodOf(inputDate))
+    }
+
 }
