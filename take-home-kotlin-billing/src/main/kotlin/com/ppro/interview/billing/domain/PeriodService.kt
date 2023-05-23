@@ -4,7 +4,7 @@ import java.time.Year
 import java.time.format.DateTimeFormatter
 import java.time.temporal.TemporalQueries
 
-class PeriodService {
+object PeriodService {
 
     fun periodIdOfDate(rawDateStr: String): String {
         val dateStr = removeOrdinalIndicator(rawDateStr)

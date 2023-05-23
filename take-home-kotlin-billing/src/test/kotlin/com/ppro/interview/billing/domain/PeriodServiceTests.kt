@@ -12,7 +12,7 @@ class PeriodServiceTests {
 
         val expected = "periodId = 2019-4"
 
-        assertEquals(expected, PeriodService().periodIdOfDate(inputDate))
+        assertEquals(expected, PeriodService.periodIdOfDate(inputDate))
     }
 
     @Test
@@ -21,7 +21,7 @@ class PeriodServiceTests {
 
         val expected = "periodId = 2019-7"
 
-        assertEquals(expected, PeriodService().periodIdOfDate(inputDate))
+        assertEquals(expected, PeriodService.periodIdOfDate(inputDate))
     }
 
     @Test
@@ -30,7 +30,7 @@ class PeriodServiceTests {
 
         val expected = "periodId = 2023-11"
 
-        assertEquals(expected, PeriodService().periodIdOfDate(inputDate))
+        assertEquals(expected, PeriodService.periodIdOfDate(inputDate))
     }
 
     @Test
@@ -39,7 +39,7 @@ class PeriodServiceTests {
 
         val expected = "periodId = 2023-11"
 
-        assertEquals(expected, PeriodService().periodIdOfDate(inputDate))
+        assertEquals(expected, PeriodService.periodIdOfDate(inputDate))
     }
 
     @Test
@@ -48,7 +48,7 @@ class PeriodServiceTests {
 
         val expected = "periodId = 2023-11"
 
-        assertEquals(expected, PeriodService().periodIdOfDate(inputDate))
+        assertEquals(expected, PeriodService.periodIdOfDate(inputDate))
     }
 
     @Test
@@ -57,7 +57,7 @@ class PeriodServiceTests {
 
         val expected = "periodId = 2023-14"
 
-        assertEquals(expected, PeriodService().periodIdOfDate(inputDate))
+        assertEquals(expected, PeriodService.periodIdOfDate(inputDate))
     }
 
     @Test
@@ -66,7 +66,7 @@ class PeriodServiceTests {
 
         val expected = PeriodFixtures.periodsOf2019
 
-        assertEquals(expected, PeriodService().periodsOfYear(inputYear))
+        assertEquals(expected, PeriodService.periodsOfYear(inputYear))
     }
 
 }

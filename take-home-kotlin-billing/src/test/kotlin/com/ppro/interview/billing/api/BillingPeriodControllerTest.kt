@@ -1,4 +1,4 @@
-package com.ppro.interview.billing
+package com.ppro.interview.billing.api
 
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
