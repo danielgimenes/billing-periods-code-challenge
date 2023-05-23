@@ -6,6 +6,8 @@ import java.time.temporal.TemporalAdjusters
 
 data class Period(val year: Int, val number: Int, val start: LocalDate) {
 
+    val periodId: String = "${year}-${number}"
+
     fun nextPeriod(): Period {
         val nextSaturday = start.with(TemporalAdjusters.next(DayOfWeek.SATURDAY))
         return Period(
