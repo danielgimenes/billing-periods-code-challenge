@@ -4,20 +4,22 @@ import java.time.DayOfWeek
 import java.time.LocalDate
 import java.time.temporal.TemporalAdjusters
 
-data class Period(val year: Int, val number: Int, val start: LocalDate) {
+data class Period(val year: Int, val number: Int, val start: LocalDate, val end: LocalDate) {
 
     val periodId: String = "${year}-${number}"
 
+    constructor(year: Int, number: Int, start: LocalDate)
+            : this(year, number, start, nextPeriodStartDate(start).minusDays(1))
+
     fun nextPeriod(): Period {
-        val nextSaturday = start.with(TemporalAdjusters.next(DayOfWeek.SATURDAY))
+        val nextStart = nextPeriodStartDate(start)
+        val nextEnd = nextPeriodStartDate(nextStart).minusDays(1)
         return Period(
-            year = nextSaturday.year,
-            number = if (nextSaturday.year > year) 1 else number + 1,
-            start =  if (start.monthValue != nextSaturday.monthValue) {
-                nextSaturday.withDayOfMonth(1)
-            } else {
-                nextSaturday
-            })
+            year = nextStart.year,
+            number = if (nextStart.year > year) 1 else number + 1,
+            start = nextStart,
+            end = nextEnd
+        )
     }
 
     companion object {
@@ -31,6 +33,16 @@ data class Period(val year: Int, val number: Int, val start: LocalDate) {
                 next = period.nextPeriod()
             }
             return period
+        }
+
+        private fun nextPeriodStartDate(date: LocalDate): LocalDate {
+            val nextSaturday = date.with(TemporalAdjusters.next(DayOfWeek.SATURDAY))
+            val isChangeOfMonth = date.monthValue != nextSaturday.monthValue
+            return if (isChangeOfMonth) {
+                nextSaturday.withDayOfMonth(1)
+            } else {
+                nextSaturday
+            }
         }
     }
 
