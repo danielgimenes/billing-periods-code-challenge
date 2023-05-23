@@ -3,26 +3,30 @@ package com.ppro.interview.billing
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest
+import org.springframework.http.MediaType
 import org.springframework.test.web.servlet.MockMvc
 import org.springframework.test.web.servlet.get
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers.status
 
-@WebMvcTest(HelloWorldController::class)
-internal class HelloWorldControllerTest {
+@WebMvcTest(BillingPeriodController::class)
+internal class BillingPeriodControllerTest {
 
     @Autowired
     private lateinit var mockMvc: MockMvc
 
     @Test
-    fun sayHiToKitten() {
-        mockMvc.get("/v1/hello/kitten").andExpect {
+    fun getPeriodsOfYearWhenSample1() {
+        mockMvc.get("/v1/billing/periods?year=2019") {
+            accept = MediaType.TEXT_PLAIN
+        }.andExpect {
             status().isOk
-            content { json("""{ "message": "hello", "recipient": "kitten" }""", strict = true) }
+            content { string(BillingPeriodControllerFixtures.outputPeriodsOf2019) }
         }
     }
 
     @Test
-    fun returnsNotFoundIfNoNameProvided() {
-        mockMvc.get("/v1/hello/").andExpect { status().isNotFound }
+    fun returnsBadRequestIfYearIsMissing() {
+        mockMvc.get("/v1/billing/periods").andExpect { status().isBadRequest }
     }
+
 }
