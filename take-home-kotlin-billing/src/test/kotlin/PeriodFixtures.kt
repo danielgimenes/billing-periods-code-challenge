@@ -2,7 +2,7 @@ import com.ppro.interview.billing.domain.Period
 import java.time.LocalDate
 
 object PeriodFixtures {
-    val periodsOf2019 = listOf(
+    val periodsOf2019 = setOf(
         Period(year = 2019, number = 1, start = LocalDate.of(2019, 1, 1), end = LocalDate.of(2019, 1, 4)), 
         Period(year = 2019, number = 2, start = LocalDate.of(2019, 1, 5), end = LocalDate.of(2019, 1, 11)), 
         Period(year = 2019, number = 3, start = LocalDate.of(2019, 1, 12), end = LocalDate.of(2019, 1, 18)), 
