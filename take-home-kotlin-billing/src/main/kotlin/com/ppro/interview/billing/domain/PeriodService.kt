@@ -23,5 +23,4 @@ object PeriodService {
                 period = period.nextPeriod()
             }
         }
-
 }
