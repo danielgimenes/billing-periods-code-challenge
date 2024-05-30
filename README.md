@@ -1,47 +1,4 @@
-# Introduction
-
-This is the first of a 3-step technical interview process:
-
-1. Take home challenge. Implement the requirements for an imaginary billing system.
-2. Live coding challenge. Extend the take home solution with additional features, in a live setting.
-3. System design and architecture. Open-ended design of a production grade, highly available billing system.
-
-The interview process mimics some of real-world problems we're facing, and allows you to tackle it using a real-world
-approach.
-
-## What we are looking for throughout this process
-
-**Self-explanatory simple code:** We like clean, simple code. The solution you produce should speak for itself -
-multiple paragraphs explaining the solution may be a sign that it isn’t straightforward enough. There's no need to
-try and make the solution seem "clever". Try to balance code simplicity with relative efficiency.
-
-**Clear separation of concerns:** Even in such simple exercise, we'd like to see you clearly separating concerns,
-following the principle of single responsibility, and structuring your code accordingly.
-
-**Test Coverage and TDD:** The solution should be developed “test-first”, and should have appropriate automated
-test coverage.
-
-**Familiarity with Java/Kotlin, including concurrency:** Even in a simple task, we want to see evidence that you
-understand modern Java/Kotlin. Pay attention to data types you use in the task and any concurrency requirements
-that may come up. This will be particularly important during live pair programming so if you're feeling rusty
-in this area, it may be a good idea to review this topic beforehand.
-
-**Ability to explain your thought process, decisions, and any trade-offs:** Working with colleagues is one of the
-most important things you'll do. We want to see good collaboration skills, whether that's pair programming
-or explaining your architecture decisions to others.
-
-## Hints
-
-* We're providing you with skeleton projects for Java and Kotlin that contain basic glue-code. You can assume that
-  the code provided here is correct and if you're not familiar with Spring, you can simply follow it as an example.
-  If you prefer, you can also start from scratch with your own project, e.g. using another framework (please create a
-  separate subdirectory if you do this).
-* You can choose to use either Java or Kotlin
-* We will not be asking you any in-depth Spring questions.
-* There are no intentional "gotchas"; if the tasks appear to be simple, that's good!
-* Googling and looking up documentation is generally allowed throughout the interview process.
-
-# Take home challenge
+# Challenge
 
 We bill our customers on a weekly basis. Each bill charges for transactions that occurred during a specific
 **billing period**, which is identified by a **year** and a **period number**, as follows:
